@@ -15,7 +15,9 @@
             android:id="@+id/imageButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_launcher_background">
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="centerCrop"
+            android:background="@color/white">
 
         </androidx.appcompat.widget.AppCompatImageButton>
     </androidx.cardview.widget.CardView>
