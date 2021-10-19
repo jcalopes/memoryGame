@@ -8,7 +8,7 @@ import utils.DEFAULT_ICONS
 class MemoryGame (private val boardSize: BoardSize){
     val cards:List<MemoryCard>
     var numPairsFound=0
-
+    private var numCardFlips=0
     private var indexOfSingleSelectorCard:Int?=null
 
     init{
@@ -21,6 +21,7 @@ class MemoryGame (private val boardSize: BoardSize){
     //1 card previously flipped over
     //2 cards previsously flipped
     fun flipCard(position: Int):Boolean {
+        numCardFlips++
         val card = cards[position]
         var foundMatch=false
         if(indexOfSingleSelectorCard==null){
@@ -52,6 +53,12 @@ class MemoryGame (private val boardSize: BoardSize){
             }
         }
     }
+
+    fun haveWonGame(): Boolean = numPairsFound == boardSize.getNumPairs()
+
+    fun isCardFaceUp(position: Int): Boolean = cards[position].isFaceUp
+
+    fun getNumMoves():Int=numCardFlips / 2
 }
 
 
